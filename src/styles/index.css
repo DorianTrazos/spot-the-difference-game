@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	/* Primary Colors */
+	--primary-100: #e3d8fd;
+	--primary-200: #c0a7fb;
+	--primary-300: #9d76f9;
+	--primary-400: #7a45f7;
+	--primary-500: #5714f5;
+	--primary-600: #4309cd;
+	--primary-700: #33079d;
+	--primary-800: #23056c;
+	--primary-900: #13023b;
+
+	/* Secondary Colors */
+	--secondary-100: #f0eff2;
+	--secondary-200: #d5d2da;
+	--secondary-300: #bbb6c3;
+	--secondary-400: #a19aac;
+	--secondary-500: #877e95;
+	--secondary-600: #6e657b;
+	--secondary-700: #554e5f;
+	--secondary-800: #3c3743;
+	--secondary-900: #2b2631;
+
+	/* Neutral Colors */
+	--neutral-100: #3b3b46;
+	--neutral-200: #33333d;
+	--neutral-300: #2a2a32;
+	--neutral-400: #26262c;
+	--neutral-500: #212126;
+	--neutral-600: #1d1d21;
+	--neutral-700: #18181b;
+	--neutral-800: #121113;
+	--neutral-900: rgb(13, 12, 13);
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+button {
+	width: fit-content;
+	color: inherit;
+}
+
+h1 {
+	font-size: 3.625rem;
+	margin-block: 2rem 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Preahvihear', serif;
+	background-color: #0d0c0d;
+	color: var(--secondary-100);
+	max-width: 1440px;
+	margin: 0 auto;
+}

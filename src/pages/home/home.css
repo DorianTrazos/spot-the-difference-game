@@ -1,0 +1,39 @@
+.main-title {
+	font-size: 5.625rem;
+	margin-block: 3rem 0;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.main-buttons {
+	display: flex;
+	gap: 1rem;
+}
+
+.button {
+	padding: 1rem 1.5rem;
+	border: 1px solid var(--secondary-100);
+	border-radius: 0.5rem;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.button-primary {
+	background-color: var(--primary-500);
+}
+
+.button-login {
+	width: 100%;
+}

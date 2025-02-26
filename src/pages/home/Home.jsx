@@ -1,11 +1,28 @@
-import Menu from '../../components/menu/Menu';
+import { Link } from 'react-router-dom';
+import Slide from '../../components/slide/Slide';
+import './home.css';
+
+const images = [
+	'/assets/images/room-1/1.png',
+	'/assets/images/room-1/1.png',
+	'/assets/images/room-1/1.png'
+];
 
 const Home = () => {
 	return (
-		<>
-			<Menu />
-			<h1>HOME</h1>
-		</>
+		<div className='main-container'>
+			<h1 className='main-title'>SPOT THE DIFFERENCES</h1>
+			<Slide images={images} />
+			<div className='buttons'>
+				<div className='main-buttons'>
+					<Link to='/game' className='button button-primary'>
+						Start Game
+					</Link>
+					<button className='button '>Tutorial</button>
+				</div>
+				<button className='button button-login'>Login</button>
+			</div>
+		</div>
 	);
 };
 

@@ -1,0 +1,27 @@
+.slide {
+	display: flex;
+	overflow: hidden;
+	width: 1100px;
+	height: 266px;
+	position: relative;
+	/* outline: 1px solid red; */
+}
+
+.slide-track {
+	display: flex;
+	width: max-content;
+	gap: 1rem;
+	animation: slide-images 10s linear infinite;
+}
+
+@keyframes slide-images {
+	to {
+		translate: -100%;
+	}
+}
+
+.slide-image {
+	width: auto;
+	height: 100%;
+	flex-shrink: 0;
+}
