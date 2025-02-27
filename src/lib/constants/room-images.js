@@ -6,17 +6,17 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['K2', 'K3'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/2.png'
 	},
 	{
 		changes: ['K1', 'K2', 'M1', 'M2'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/3.png'
 	},
 	{
 		changes: ['H6', 'H7', 'H8', 'J6', 'J7', 'J8', 'L7', 'L8'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/4.png'
 	},
 	{
@@ -31,17 +31,17 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['Q8'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.EXTRA.change,
 		image: '/assets/images/room-1/7.png'
 	},
 	{
 		changes: ['E5', 'E6', 'G5', 'G6', 'I5', 'I6', 'K5', 'K6'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/8.png'
 	},
 	{
 		changes: ['C9'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.EXTRA.change,
 		image: '/assets/images/room-1/9.png'
 	},
 	{
@@ -88,8 +88,8 @@ const AVAILABLE_ROOMS = [
 		image: '/assets/images/room-1/15.png'
 	},
 	{
-		changes: ['O2'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changes: ['O2', 'M2'],
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/16.png'
 	},
 	{
@@ -98,13 +98,13 @@ const AVAILABLE_ROOMS = [
 		image: '/assets/images/room-1/17.png'
 	},
 	{
-		changes: ['F0', 'I8'],
+		changes: ['F0'],
 		changeType: CONTEXT_OPTIONS.MISSING.change,
 		image: '/assets/images/room-1/18.png'
 	},
 	{
 		changes: ['O7'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.EXTRA.change,
 		image: '/assets/images/room-1/19.png'
 	},
 	{
@@ -113,7 +113,7 @@ const AVAILABLE_ROOMS = [
 		image: '/assets/images/room-1/20.png'
 	},
 	{
-		changes: ['R4'],
+		changes: ['R4', 'P4'],
 		changeType: CONTEXT_OPTIONS.MISSING.change,
 		image: '/assets/images/room-1/21.png'
 	},
@@ -144,17 +144,17 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['L4', 'L5', 'N5'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.EXTRA.change,
 		image: '/assets/images/room-1/27.png'
 	},
 	{
-		changes: ['S8'],
+		changes: ['S8', 'Q8'],
 		changeType: CONTEXT_OPTIONS.MISSING.change,
 		image: '/assets/images/room-1/28.png'
 	},
 	{
 		changes: ['K5'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.EXTRA.change,
 		image: '/assets/images/room-1/29.png'
 	},
 	{
@@ -164,17 +164,17 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['M2', 'M1', 'K2'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/31.png'
 	},
 	{
 		changes: ['H6', 'H7', 'H8', 'J6', 'J7', 'J8', 'L7', 'L8'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/32.png'
 	},
 	{
 		changes: ['E5', 'E6', 'G5', 'G6', 'I5', 'I6', 'K5', 'K6'],
-		changeType: CONTEXT_OPTIONS.EXTRA.change,
+		changeType: CONTEXT_OPTIONS.STATE.change,
 		image: '/assets/images/room-1/33.png'
 	},
 	{
@@ -194,7 +194,7 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['L8'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.EXTRA.change,
 		image: '/assets/images/room-1/37.png'
 	},
 	{
@@ -213,7 +213,7 @@ const shuffleRoomChanges = () => {
 	return [firstElement, ...restElements];
 };
 
-const ROOMS_TO_PLAY = shuffleRoomChanges();
-// const ROOMS_TO_PLAY = AVAILABLE_ROOMS;
+// const ROOMS_TO_PLAY = shuffleRoomChanges();
+const ROOMS_TO_PLAY = AVAILABLE_ROOMS;
 
 export { ROOMS_TO_PLAY };

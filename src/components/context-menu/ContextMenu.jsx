@@ -1,4 +1,4 @@
-import { incrementErrors, nextLevel } from '../../lib/actions/game-actions';
+import { nextLevel } from '../../lib/actions/game-actions';
 import { CONTEXT_MENU_OPTIONS } from '../../lib/constants/context-menu-options';
 import { useGame } from '../../lib/hooks/useGame';
 import './context-menu.css';
@@ -27,6 +27,10 @@ const ContextMenu = ({ menuCoordinates, gridClick, roomToPlay }) => {
 };
 
 const selectChange = (roomToPlay, gridClick, option, dispatch) => {
+	console.log('GRID', gridClick);
+	console.log('ROOM', roomToPlay);
+	console.log('ROOM', option);
+
 	if (!roomToPlay.changes.includes(gridClick)) {
 		dispatch(incrementErrors());
 		return;
