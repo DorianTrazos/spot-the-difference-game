@@ -19,3 +19,7 @@ export const incrementErrors = () => ({
 export const gameOver = () => ({
 	type: GAME_ACTIONS.GAME_OVER
 });
+
+export const reestartGame = () => ({
+	type: GAME_ACTIONS.REESTART_GAME
+});

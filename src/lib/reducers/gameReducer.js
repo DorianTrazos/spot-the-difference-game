@@ -11,7 +11,6 @@ export const initialState = {
 };
 
 export const gameReducer = (gameState, { type }) => {
-	console.log(type);
 	switch (type) {
 		case GAME_ACTIONS.NEXT_PHASE: {
 			const nextPhase =
@@ -67,6 +66,12 @@ export const gameReducer = (gameState, { type }) => {
 			return {
 				...gameState,
 				canPlay: false
+			};
+		}
+
+		case GAME_ACTIONS.REESTART_GAME: {
+			return {
+				...initialState
 			};
 		}
 

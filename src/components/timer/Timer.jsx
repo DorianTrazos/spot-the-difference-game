@@ -34,7 +34,6 @@ const Timer = () => {
 };
 
 const changePhase = (phase, dispatch) => {
-	console.log(phase);
 	if (phase === PHASES_INFO.MEMORIZE || phase === PHASES_INFO.READY) {
 		dispatch(nextPhase());
 	} else if (phase === PHASES_INFO.PLAY) {

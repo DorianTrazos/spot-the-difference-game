@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../../components/modal/Modal';
 import Slide from '../../components/slide/Slide';
+import { reestartGame } from '../../lib/actions/game-actions';
+import { useGame } from '../../lib/hooks/useGame';
 import './home.css';
 
 const images = [
@@ -12,6 +14,12 @@ const images = [
 
 const Home = () => {
 	const [showTutorial, setShowTutorial] = useState(false);
+	const { canPlay, dispatch } = useGame();
+	useEffect(() => {
+		if (!canPlay) {
+			dispatch(reestartGame());
+		}
+	}, [canPlay, dispatch]);
 	return (
 		<>
 			<div className='main-container'>
