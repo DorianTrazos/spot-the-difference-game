@@ -1,17 +1,17 @@
 import { incrementErrors, nextLevel } from '../../lib/actions/game-actions';
-import { contextMenuOptions } from '../../lib/constants/context-menu-options';
+import { CONTEXT_MENU_OPTIONS } from '../../lib/constants/context-menu-options';
 import { useGame } from '../../lib/hooks/useGame';
 import './context-menu.css';
 
 const ContextMenu = ({ menuCoordinates, gridClick, roomToPlay }) => {
-	const { level, dispatch } = useGame();
+	const { dispatch } = useGame();
 
 	return (
 		<ul
 			className='option-list'
 			style={{ '--top': menuCoordinates.top, '--left': menuCoordinates.left }}
 		>
-			{contextMenuOptions.map(option => (
+			{CONTEXT_MENU_OPTIONS.map(option => (
 				<li
 					key={option.change}
 					className='option'

@@ -1,5 +1,6 @@
 import ErrorsDisplay from '../../components/errors-display/ErrorsDisplay';
 import GameInfo from '../../components/game-info/GameInfo';
+import GameOver from '../../components/game-over/GameOver';
 import RoomToPlay from '../../components/room-to-play/RoomToPlay';
 import Timer from '../../components/timer/Timer';
 import { PHASES_INFO } from '../../lib/constants/phases-info';
@@ -24,7 +25,7 @@ const Game = () => {
 					</div>
 				</>
 			)}
-			{!canPlay && <h2>PERDISTE</h2>}
+			{!canPlay && <GameOver />}
 		</>
 	);
 };

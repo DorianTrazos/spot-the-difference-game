@@ -11,6 +11,7 @@ export const initialState = {
 };
 
 export const gameReducer = (gameState, { type }) => {
+	console.log(type);
 	switch (type) {
 		case GAME_ACTIONS.NEXT_PHASE: {
 			const nextPhase =
@@ -47,9 +48,11 @@ export const gameReducer = (gameState, { type }) => {
 		}
 
 		case GAME_ACTIONS.INCREMENT_ERRORS: {
+			const totalErrors = gameState.errors + 1;
 			return {
 				...gameState,
-				errors: gameState.errors + 1
+				errors: totalErrors,
+				canPlay: totalErrors < 3
 			};
 		}
 
