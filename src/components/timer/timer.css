@@ -1,11 +1,9 @@
 .timer {
-	--time: ;
 	position: relative;
 	width: 25%;
-	height: 25px; /* Ajusta según lo necesites */
+	height: 25px;
 	background-color: #c0c0c0;
 	overflow: hidden;
-	margin-bottom: 2rem;
 }
 
 .timer::after {
@@ -15,6 +13,5 @@
 	left: 0;
 	height: 100%;
 	background-image: linear-gradient(to right, rgb(128, 0, 60), orange);
-	width: calc(var(--time) * 1%);
-	/* transition: width 1s linear; */
+	width: var(--time);
 }

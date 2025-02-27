@@ -1,39 +1,40 @@
-import { useEffect, useState } from 'react';
-
+import { useEffect } from 'react';
+import { useGame } from '../../lib/hooks/useGame';
 import './timer.css';
 
-const Timer = ({ time, title, view, setView }) => {
-	const [remainingTime, setRemainingTime] = useState(time);
+const Timer = () => {
+	const { dispatch, phase, remainingTime } = useGame();
+	const { time, title } = phase;
 
+	// Asegurar que el width siempre esté en el rango 0-100%
+	const timePercentage = Math.max(
+		0,
+		Math.min((remainingTime / time) * 100, 100)
+	);
+	console.log(timePercentage);
 	useEffect(() => {
-		// Reiniciar el tiempo cuando cambia de fase
-		setRemainingTime(time);
-	}, [time, view]);
-
-	useEffect(() => {
-		if (remainingTime > 0) {
-			const timeoutId = setTimeout(() => {
-				setRemainingTime(remainingTime - 1);
-			}, 1000);
-
-			return () => clearTimeout(timeoutId);
-		} else {
-			setView(view + 1); // Cambia de vista cuando el tiempo llegue a 0
-			setRemainingTime(time); // Reinicia el tiempo
+		if (remainingTime === 0) {
+			dispatch({ type: 'NEXT_LEVEL' });
+			return;
 		}
-	}, [remainingTime, time, view, setView]);
+		const timeoutId = setTimeout(
+			() => dispatch({ type: 'DECREMENT_TIME' }),
+			1000
+		);
+		return () => clearTimeout(timeoutId);
+	}, [dispatch, remainingTime]);
 
 	return (
 		<>
 			<h2 className='timer-title'>{title}</h2>
 			<div
 				className='timer'
-				style={{ '--time': (remainingTime / time) * 100 }}
+				style={{ '--time': `${timePercentage}%` }} // Siempre exacto
 			/>
+			<span>{remainingTime}-</span>
+			<span>{time}</span>
 		</>
 	);
 };
 
-// 11 - 100
-// 10 - x
 export default Timer;
