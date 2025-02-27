@@ -54,6 +54,12 @@ button {
 	color: inherit;
 }
 
+h1,
+h2,
+h3 {
+	font-family: 'Preahvihear', serif;
+}
+
 h1 {
 	font-size: 3.625rem;
 	margin-block: 2rem 0;
@@ -63,7 +69,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	font-family: 'Preahvihear', serif;
+	font-family: 'Patrick Hand', serif;
+
 	background-color: #0d0c0d;
 	color: var(--secondary-100);
 	max-width: 1440px;

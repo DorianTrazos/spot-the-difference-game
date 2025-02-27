@@ -1,37 +1,18 @@
+import { GAME_ACTIONS } from '../constants/game-actions';
 import { PHASES_INFO } from '../constants/phases-info';
 
 export const initialState = {
 	level: 1,
 	errors: 0,
+	points: 0,
 	phase: PHASES_INFO.MEMORIZE,
-	remainingTime: PHASES_INFO.MEMORIZE.time
+	remainingTime: PHASES_INFO.MEMORIZE.time,
+	canPlay: true
 };
 
 export const gameReducer = (gameState, { type }) => {
 	switch (type) {
-		case 'MEMORIZE_PHASE': {
-			return {
-				...gameState,
-				phase: PHASES_INFO.MEMORIZE,
-				remainingTime: PHASES_INFO.MEMORIZE.time
-			};
-		}
-		case 'READY_PHASE': {
-			return {
-				...gameState,
-				phase: PHASES_INFO.READY,
-				remainingTime: PHASES_INFO.READY.time
-			};
-		}
-		case 'PLAY_PHASE': {
-			const playPhase = {
-				...PHASES_INFO.PLAY
-			};
-			return { ...gameState, phase: playPhase, remainingTime: playPhase.time };
-		}
-
-		case 'NEXT_LEVEL': {
-			// Alterna entre READY y PLAY en cada nivel
+		case GAME_ACTIONS.NEXT_PHASE: {
 			const nextPhase =
 				gameState.phase === PHASES_INFO.READY
 					? PHASES_INFO.PLAY
@@ -39,23 +20,54 @@ export const gameReducer = (gameState, { type }) => {
 
 			return {
 				...gameState,
-				level:
-					gameState.phase === PHASES_INFO.READY
-						? gameState.level + 1
-						: gameState.level,
 				phase: nextPhase,
 				remainingTime: nextPhase.time
 			};
 		}
 
-		case 'DECREMENT_TIME': {
+		case GAME_ACTIONS.NEXT_LEVEL: {
+			const nextPhase =
+				gameState.phase === PHASES_INFO.READY
+					? PHASES_INFO.PLAY
+					: PHASES_INFO.READY;
+
+			const pointsForLevel = Math.round(
+				gameState.points +
+					gameState.remainingTime *
+						10 *
+						(gameState.remainingTime / gameState.phase.time)
+			);
+			return {
+				...gameState,
+				phase: nextPhase,
+				level: gameState.level + 1,
+				remainingTime: nextPhase.time,
+				points: pointsForLevel
+			};
+		}
+
+		case GAME_ACTIONS.INCREMENT_ERRORS: {
+			return {
+				...gameState,
+				errors: gameState.errors + 1
+			};
+		}
+
+		case GAME_ACTIONS.DECREMENT_TIME: {
 			return {
 				...gameState,
 				remainingTime: gameState.remainingTime - 1
 			};
 		}
 
+		case GAME_ACTIONS.GAME_OVER: {
+			return {
+				...gameState,
+				canPlay: false
+			};
+		}
+
 		default:
-			return gameState;
+			throw new Error('Invalid Action');
 	}
 };

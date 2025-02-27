@@ -1,0 +1,39 @@
+.option-list {
+	--top: 0;
+	--left: 0;
+	list-style: none;
+	position: absolute;
+	top: var(--top);
+	left: var(--left);
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-left: 0;
+	padding: 0.5rem 1rem;
+	backdrop-filter: blur(5px);
+	background-color: rgba(17 17 17/ 0.6);
+	border-radius: 1rem;
+}
+
+.option-list::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -45px;
+	width: 30px;
+	height: 30px;
+	border: 2px solid white;
+	border-radius: 50%;
+}
+
+.option:not(:last-child) {
+	border-bottom: 1px solid aliceblue;
+	padding-bottom: 0.5rem;
+	cursor: pointer;
+}
+
+@media (hover: hover) {
+	.option:hover {
+		color: rgb(77, 192, 253);
+	}
+}

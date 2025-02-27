@@ -1,64 +1,41 @@
-import { ROOMS_TO_PLAY } from '../../constants/room-images';
+import { incrementErrors, nextLevel } from '../../lib/actions/game-actions';
+import { contextMenuOptions } from '../../lib/constants/context-menu-options';
+import { useGame } from '../../lib/hooks/useGame';
+import './context-menu.css';
 
-const ContextMenu = ({
-	menuCoordinates,
-	level,
-	setLevel,
-	gridClick,
-	setView
-}) => {
+const ContextMenu = ({ menuCoordinates, gridClick, roomToPlay }) => {
+	const { level, dispatch } = useGame();
+
 	return (
 		<ul
 			className='option-list'
 			style={{ '--top': menuCoordinates.top, '--left': menuCoordinates.left }}
 		>
-			<li
-				className='option'
-				onClick={() =>
-					selectChange(level, setLevel, gridClick, 'extra', setView)
-				}
-			>
-				Extra
-			</li>
-			<li
-				className='option'
-				onClick={() =>
-					selectChange(level, setLevel, gridClick, 'dissapear', setView)
-				}
-			>
-				Desaparecido
-			</li>
-			<li
-				className='option'
-				onClick={() =>
-					selectChange(level, setLevel, gridClick, 'modified', setView)
-				}
-			>
-				Modificado
-			</li>
-			<li
-				className='option'
-				onClick={() =>
-					selectChange(level, setLevel, gridClick, 'replaced', setView)
-				}
-			>
-				Reemplazado
-			</li>
+			{contextMenuOptions.map(option => (
+				<li
+					key={option.change}
+					className='option'
+					onClick={() =>
+						selectChange(roomToPlay, gridClick, option.change, dispatch)
+					}
+				>
+					{option.text}
+				</li>
+			))}
 		</ul>
 	);
 };
 
-const selectChange = (level, setLevel, gridClick, change, setView) => {
-	const selectedRoom = ROOMS_TO_PLAY[level];
-
-	if (!selectedRoom.changes.includes(gridClick)) {
-		console.log('AHÍ NO HAY CAMBIOS');
+const selectChange = (roomToPlay, gridClick, option, dispatch) => {
+	if (!roomToPlay.changes.includes(gridClick)) {
+		dispatch(incrementErrors());
 		return;
 	}
 
-	if (selectedRoom.changeType === change) {
-		setLevel(level + 1);
-		setView(1);
+	if (roomToPlay.changeType === option) {
+		dispatch(nextLevel());
+	} else if (roomToPlay.changeType !== option) {
+		dispatch(incrementErrors());
 	}
 };
 
