@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Modal from '../../components/modal/Modal';
 import Slide from '../../components/slide/Slide';
 import { reestartGame } from '../../lib/actions/game-actions';
+import { reorderImages } from '../../lib/constants/room-images';
 import { useGame } from '../../lib/hooks/useGame';
 import './home.css';
 
@@ -18,6 +19,7 @@ const Home = () => {
 	useEffect(() => {
 		if (!canPlay) {
 			dispatch(reestartGame());
+			reorderImages();
 		}
 	}, [canPlay, dispatch]);
 	return (

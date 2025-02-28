@@ -15,7 +15,13 @@ const GameOver = () => {
 					<span>ORIGINAL</span>
 				</div>
 				<div className='image'>
-					<img src={ROOMS_TO_PLAY[level].image} alt='original room' />
+					<img
+						src={ROOMS_TO_PLAY[level].image.replace(
+							'room-1',
+							'room-1-solutions'
+						)}
+						alt='original room'
+					/>
 					<span>MODIFICADA</span>
 				</div>
 			</div>

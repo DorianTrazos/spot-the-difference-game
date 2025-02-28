@@ -45,8 +45,8 @@ const AVAILABLE_ROOMS = [
 		image: '/assets/images/room-1/9.png'
 	},
 	{
-		changes: ['N4', 'N5'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changes: ['K9', 'L0'],
+		changeType: CONTEXT_OPTIONS.MISSING.change,
 		image: '/assets/images/room-1/10.png'
 	},
 	{
@@ -213,7 +213,11 @@ const shuffleRoomChanges = () => {
 	return [firstElement, ...restElements];
 };
 
-const ROOMS_TO_PLAY = shuffleRoomChanges();
+let ROOMS_TO_PLAY = shuffleRoomChanges();
 // const ROOMS_TO_PLAY = AVAILABLE_ROOMS;
 
-export { ROOMS_TO_PLAY };
+const reorderImages = () => {
+	ROOMS_TO_PLAY = shuffleRoomChanges();
+};
+
+export { reorderImages, ROOMS_TO_PLAY };
