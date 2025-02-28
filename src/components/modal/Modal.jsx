@@ -25,13 +25,9 @@ const Modal = ({ closeModal }) => {
 					<li>
 						<span className='emphasis'>Tipos de cambios posibles:</span> Los
 						cambios pueden pertenecer a
-						<span className='emphasis'> cinco categorías</span> diferentes:
+						<span className='emphasis'> seis categorías</span> diferentes:
 					</li>
 					<ul>
-						<li>
-							<span className='emphasis'>Reemplazado:</span> Un objeto ha sido
-							sustituido por otro.
-						</li>
 						<li>
 							<span className='emphasis'>Extra:</span> Ha aparecido un nuevo
 							objeto que antes no estaba.
@@ -42,11 +38,19 @@ const Modal = ({ closeModal }) => {
 						</li>
 						<li>
 							<span className='emphasis'>Posición:</span> Un objeto se ha movido
-							a una ubicación diferente.
+							a una ubicación diferente o ha rotado.
 						</li>
 						<li>
 							<span className='emphasis'>Estado:</span> Un objeto ha cambiado su
 							condición (por ejemplo, abierto/cerrado, encendido/apagado, etc.).
+						</li>
+						<li>
+							<span className='emphasis'>Reemplazado:</span> Un objeto ha sido
+							sustituido por otro.
+						</li>
+						<li>
+							<span className='emphasis'>Apariencia:</span> Un objeto ha
+							cambiado su color, textura o forma sin ser sustituido.
 						</li>
 					</ul>
 				</ul>
