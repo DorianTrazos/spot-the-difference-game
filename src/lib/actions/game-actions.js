@@ -20,6 +20,10 @@ export const gameOver = () => ({
 	type: GAME_ACTIONS.GAME_OVER
 });
 
+export const winGame = () => ({
+	type: GAME_ACTIONS.WIN_GAME
+});
+
 export const reestartGame = () => ({
 	type: GAME_ACTIONS.REESTART_GAME
 });

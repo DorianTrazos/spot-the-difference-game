@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
 import ErrorsDisplay from '../../components/errors-display/ErrorsDisplay';
 import GameInfo from '../../components/game-info/GameInfo';
 import GameOver from '../../components/game-over/GameOver';
 import RoomToPlay from '../../components/room-to-play/RoomToPlay';
 import Timer from '../../components/timer/Timer';
+import WinGame from '../../components/win-game/WinGame';
 import { PHASES_INFO } from '../../lib/constants/phases-info';
 import { useGame } from '../../lib/hooks/useGame';
+import { saveGameTimeInLocalStorage } from '../../lib/utils/local-storage';
 import './game.css';
 const Game = () => {
-	const { phase, canPlay } = useGame();
+	const { phase, canPlay, endGame } = useGame();
+
+	useEffect(() => {
+		saveGameTimeInLocalStorage();
+	}, []);
 
 	return (
 		<>
@@ -25,7 +32,8 @@ const Game = () => {
 					</div>
 				</>
 			)}
-			{!canPlay && <GameOver />}
+			{!canPlay && !endGame && <GameOver />}
+			{endGame && <WinGame />}
 		</>
 	);
 };

@@ -1,7 +1,7 @@
 const GAME_PHASES = {
-	MEMORIZE: { title: 'Memoriza', time: 20 },
+	MEMORIZE: { title: 'Memoriza', time: 2 },
 	READY: { title: '¿Listo?', time: 3 },
-	PLAY: { title: '¿Qué Ha Cambiado?', time: 60 }
+	PLAY: { title: '¿Qué Ha Cambiado?', time: 20 }
 };
 
 export const PHASES_INFO = {

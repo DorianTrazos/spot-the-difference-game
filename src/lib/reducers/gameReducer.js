@@ -7,7 +7,9 @@ export const initialState = {
 	points: 0,
 	phase: PHASES_INFO.MEMORIZE,
 	remainingTime: PHASES_INFO.MEMORIZE.time,
-	canPlay: true
+	canPlay: true,
+	endGame: false,
+	gameTime: 0
 };
 
 export const gameReducer = (gameState, { type }) => {
@@ -65,7 +67,16 @@ export const gameReducer = (gameState, { type }) => {
 		case GAME_ACTIONS.GAME_OVER: {
 			return {
 				...gameState,
-				canPlay: false
+				canPlay: false,
+				endGame: false
+			};
+		}
+
+		case GAME_ACTIONS.WIN_GAME: {
+			return {
+				...gameState,
+				canPlay: false,
+				endGame: true
 			};
 		}
 
