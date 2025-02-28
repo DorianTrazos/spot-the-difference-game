@@ -11,7 +11,7 @@ const GameOver = () => {
 			<p>Has obtenido una puntuación total de {points} puntos!!!</p>
 			<div className='images-compare'>
 				<div className='image'>
-					<img src='public/assets/images/room-1/1.png' alt='original room' />
+					<img src='/assets/images/room-1/1.png' alt='original room' />
 					<span>ORIGINAL</span>
 				</div>
 				<div className='image'>
