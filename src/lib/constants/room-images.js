@@ -213,7 +213,7 @@ const shuffleRoomChanges = () => {
 	return [firstElement, ...restElements];
 };
 
-// const ROOMS_TO_PLAY = shuffleRoomChanges();
-const ROOMS_TO_PLAY = AVAILABLE_ROOMS;
+const ROOMS_TO_PLAY = shuffleRoomChanges();
+// const ROOMS_TO_PLAY = AVAILABLE_ROOMS;
 
 export { ROOMS_TO_PLAY };

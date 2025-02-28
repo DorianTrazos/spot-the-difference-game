@@ -27,11 +27,16 @@ const RoomToPlay = () => {
 			<div
 				ref={containerRef}
 				className='image-container'
-				style={{ '--room-image': `url(${roomToPlay.image})` }}
+				// style={{ '--room-image': `url(${roomToPlay.image})` }}
 				onClick={event =>
 					showModalOptions(event, containerRef, setMenuCoordinates)
 				}
 			>
+				<img
+					className='image-to-play'
+					src={roomToPlay.image}
+					alt='room image'
+				/>
 				{PLAYER_GRID.map(square => (
 					<span
 						key={square.row + square.column}
