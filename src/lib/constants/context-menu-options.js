@@ -3,22 +3,27 @@ export const CONTEXT_OPTIONS = {
 		change: 'extra',
 		text: 'Extra'
 	},
+
 	MISSING: {
 		change: 'missing',
 		text: 'Desaparecido'
 	},
+
 	POSITION: {
 		change: 'position',
 		text: 'Posición'
 	},
+
 	STATE: {
 		change: 'state',
 		text: 'Estado'
 	},
+
 	REPLACED: {
 		change: 'replaced',
 		text: 'Reemplazado'
 	},
+
 	APPEARANCE: {
 		change: 'appearance',
 		text: 'Apariencia'

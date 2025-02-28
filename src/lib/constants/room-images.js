@@ -21,7 +21,7 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['F2', 'F3', 'F4', 'H2', 'H3', 'H4'],
-		changeType: CONTEXT_OPTIONS.APPEARANCE.change,
+		changeType: CONTEXT_OPTIONS.POSITION.change,
 		image: '/assets/images/room-1/5.png'
 	},
 	{
