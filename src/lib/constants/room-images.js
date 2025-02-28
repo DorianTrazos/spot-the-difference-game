@@ -213,8 +213,8 @@ const shuffleRoomChanges = () => {
 	return [firstElement, ...restElements];
 };
 
-// let ROOMS_TO_PLAY = shuffleRoomChanges();
-let ROOMS_TO_PLAY = AVAILABLE_ROOMS;
+let ROOMS_TO_PLAY = shuffleRoomChanges();
+// let ROOMS_TO_PLAY = AVAILABLE_ROOMS;
 
 const reorderImages = () => {
 	ROOMS_TO_PLAY = shuffleRoomChanges();
