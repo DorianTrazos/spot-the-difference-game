@@ -14,7 +14,7 @@ const Modal = ({ closeModal }) => {
 				<ul>
 					<li>
 						<span className='emphasis'>Memoriza la imagen:</span> Tendrás{' '}
-						<span className='emphasis'>10 segundos</span> para observar y
+						<span className='emphasis'>20 segundos</span> para observar y
 						memorizar la imagen original.
 					</li>
 					<li>

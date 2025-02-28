@@ -11,7 +11,7 @@ const Game = () => {
 
 	return (
 		<>
-			<h1>SPOT THE DIFFERENCES</h1>
+			<h1 className='main-title'>SPOT THE DIFFERENCES</h1>
 			{canPlay && (
 				<>
 					<GameInfo />

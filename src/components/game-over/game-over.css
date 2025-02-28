@@ -3,8 +3,20 @@
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	font-size: 1.25rem;
 }
 
 .game-over-title {
 	margin-bottom: 0;
+}
+
+.images-compare {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 4rem;
+	font-size: 2rem;
+}
+
+.images-compare img {
+	margin-bottom: 1rem;
 }
