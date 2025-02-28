@@ -18,6 +18,10 @@ export const CONTEXT_OPTIONS = {
 	REPLACED: {
 		change: 'replaced',
 		text: 'Reemplazado'
+	},
+	APPEARANCE: {
+		change: 'appearance',
+		text: 'Apariencia'
 	}
 };
 
@@ -26,5 +30,6 @@ export const CONTEXT_MENU_OPTIONS = [
 	CONTEXT_OPTIONS.MISSING,
 	CONTEXT_OPTIONS.POSITION,
 	CONTEXT_OPTIONS.STATE,
-	CONTEXT_OPTIONS.REPLACED
+	CONTEXT_OPTIONS.REPLACED,
+	CONTEXT_OPTIONS.APPEARANCE
 ].sort(() => Math.random() - 0.5);

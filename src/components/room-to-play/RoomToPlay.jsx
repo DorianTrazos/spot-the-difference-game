@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { PLAYER_GRID } from '../../lib/constants/player-grid';
 import { ROOMS_TO_PLAY } from '../../lib/constants/room-images';
 import { useGame } from '../../lib/hooks/useGame';
@@ -11,16 +11,15 @@ const RoomToPlay = () => {
 	const [gridClick, setGridClick] = useState(null);
 	const roomToPlay = ROOMS_TO_PLAY[level];
 
-	useEffect(() => {
-		window.addEventListener('click', event =>
-			handleClickOutOfBounds(event, setMenuCoordinates)
-		);
+	const handleClickCallback = useCallback(
+		event => handleClickOutOfBounds(event, setMenuCoordinates),
+		[setMenuCoordinates] // Se re-creará solo si `setMenuCoordinates` cambia
+	);
 
-		return () =>
-			window.removeEventListener('click', event =>
-				handleClickOutOfBounds(event, setMenuCoordinates)
-			);
-	});
+	useEffect(() => {
+		window.addEventListener('click', handleClickCallback);
+		return () => window.removeEventListener('click', handleClickCallback);
+	}, [handleClickCallback]);
 
 	return (
 		<>

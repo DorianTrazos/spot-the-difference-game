@@ -13,19 +13,19 @@ const Modal = ({ closeModal }) => {
 				<h2 className='modal-title'>Instrucciones del Juego</h2>
 				<ul>
 					<li>
-						<span className='emphasis'>Memoriza la imagen:</span> Tendrás{' '}
+						<span className='emphasis'>Memoriza la imagen:</span> Tendrás
 						<span className='emphasis'>20 segundos</span> para observar y
 						memorizar la imagen original.
 					</li>
 					<li>
 						<span className='emphasis'>Encuentra el cambio:</span> Una vez
-						pasado el tiempo, aparecerá una nueva imagen y deberás identificar{' '}
-						<span className='emphasis'>qué ha cambiado</span>.
+						pasado el tiempo, aparecerá una nueva imagen y deberás identificar
+						<span className='emphasis'> qué ha cambiado</span>.
 					</li>
 					<li>
 						<span className='emphasis'>Tipos de cambios posibles:</span> Los
-						cambios pueden pertenecer a{' '}
-						<span className='emphasis'>cinco categorías</span> diferentes:
+						cambios pueden pertenecer a
+						<span className='emphasis'> cinco categorías</span> diferentes:
 					</li>
 					<ul>
 						<li>

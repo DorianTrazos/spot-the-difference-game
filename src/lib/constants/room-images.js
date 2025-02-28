@@ -21,7 +21,7 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['F2', 'F3', 'F4', 'H2', 'H3', 'H4'],
-		changeType: CONTEXT_OPTIONS.POSITION.change,
+		changeType: CONTEXT_OPTIONS.APPEARANCE.change,
 		image: '/assets/images/room-1/5.png'
 	},
 	{
@@ -79,7 +79,7 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['N7', 'N8', 'N9', 'P5', 'P6', 'P7', 'P8', 'P9', 'R6'],
-		changeType: CONTEXT_OPTIONS.REPLACED.change,
+		changeType: CONTEXT_OPTIONS.APPEARANCE.change,
 		image: '/assets/images/room-1/14.png'
 	},
 	{
@@ -189,7 +189,7 @@ const AVAILABLE_ROOMS = [
 	},
 	{
 		changes: ['Q9'],
-		changeType: CONTEXT_OPTIONS.REPLACED.change,
+		changeType: CONTEXT_OPTIONS.APPEARANCE.change,
 		image: '/assets/images/room-1/36.png'
 	},
 	{

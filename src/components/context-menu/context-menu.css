@@ -26,10 +26,13 @@
 	border-radius: 50%;
 }
 
+.option {
+	cursor: pointer;
+}
+
 .option:not(:last-child) {
 	border-bottom: 1px solid aliceblue;
 	padding-bottom: 0.5rem;
-	cursor: pointer;
 }
 
 @media (hover: hover) {
