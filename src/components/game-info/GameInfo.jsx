@@ -1,10 +1,10 @@
 import { useAuth } from '../../lib/hooks/useAuth';
 import { useGame } from '../../lib/hooks/useGame';
+import ErrorsDisplay from '../errors-display/ErrorsDisplay';
 
 const GameInfo = () => {
 	const { level, points } = useGame();
 	const { user } = useAuth();
-	console.log(user);
 	return (
 		<div className='game-user-info'>
 			<div className='info'>
@@ -25,6 +25,7 @@ const GameInfo = () => {
 					{points}
 				</div>
 			</div>
+			<ErrorsDisplay />
 		</div>
 	);
 };

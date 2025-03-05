@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import ErrorsDisplay from '../../components/errors-display/ErrorsDisplay';
 import GameInfo from '../../components/game-info/GameInfo';
 import GameOver from '../../components/game-over/GameOver';
 import RoomToPlay from '../../components/room-to-play/RoomToPlay';
@@ -22,7 +21,7 @@ const Game = () => {
 			{canPlay && (
 				<>
 					<GameInfo />
-					<ErrorsDisplay />
+
 					<div className='game-container'>
 						{phase === PHASES_INFO.MEMORIZE && (
 							<img src='/assets/images/room-1/1.png' />
