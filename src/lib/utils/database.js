@@ -1,5 +1,24 @@
 import { supabase } from '../../supabase/supabase-config';
 
+export const getUserData = async (userId, setUser) => {
+	try {
+		// Obtener los datos del usuario desde la base de datos
+		const { data: user, error } = await supabase
+			.from('users')
+			.select('*')
+			.eq('id', userId)
+			.single();
+
+		if (error) throw error;
+
+		// Actualizar el estado con los datos obtenidos
+		setUser(user);
+		console.log('Datos del usuario cargados con éxito.');
+	} catch (err) {
+		console.error('Error al obtener los datos del usuario:', err.message);
+	}
+};
+
 export const saveUserData = async user => {
 	// Verificar si el usuario ya existe en la base de datos
 	const { data: existingUser, error: fetchError } = await supabase
@@ -12,12 +31,12 @@ export const saveUserData = async user => {
 		// Si el usuario no existe, lo insertamos
 		const { error: insertError } = await supabase.from('users').insert([
 			{
-				id: user.id, // Usamos el UUID de autenticación
+				id: user.id,
 				email: user.email,
 				username: user.user_metadata.full_name || user.email.split('@')[0],
-				level: 1,
-				points: 0,
-				total_attemps: 0
+				max_level: 1,
+				max_points: 0,
+				total_attempts: 1
 			}
 		]);
 
@@ -31,23 +50,26 @@ export const updateGameStats = async (userId, newLevel, newPoints) => {
 		// Obtener los datos actuales del usuario
 		const { data: userStats, error: fetchError } = await supabase
 			.from('users')
-			.select('game_time, level, points')
+			.select('max_level, max_points, total_attempts')
 			.eq('id', userId)
 			.single();
 
 		if (fetchError) throw fetchError;
 
 		// Calcular los nuevos valores
-		// const updatedGameTime = userStats.game_time + additionalSeconds;
-		const updatedLevel = Math.max(userStats.level, newLevel); // Mantiene el nivel más alto
-		const updatedPoints = userStats.points + newPoints;
+		const updatedLevel =
+			newLevel > userStats.max_level ? newLevel : userStats.max_level;
+		const updatedPoints =
+			newPoints > userStats.max_points ? newPoints : userStats.max_points;
+		const updatedAttempts = userStats.total_attempts + 1; // Sumar 1 intento
 
-		// Actualizar los valores en la base de datos
+		// Actualizar la base de datos
 		const { error: updateError } = await supabase
 			.from('users')
 			.update({
-				level: updatedLevel,
-				points: updatedPoints
+				max_level: updatedLevel,
+				max_points: updatedPoints,
+				total_attempts: updatedAttempts
 			})
 			.eq('id', userId);
 
@@ -61,11 +83,14 @@ export const updateGameStats = async (userId, newLevel, newPoints) => {
 
 export const getAllUsers = async setUsers => {
 	try {
-		const { data, error } = await supabase.from('users').select('*');
+		const { data, error } = await supabase
+			.from('users')
+			.select('*')
+			.order('max_points', { ascending: false });
 
 		if (error) throw error;
 
-		setUsers(data);
+		setUsers(data.slice(0, 3));
 	} catch (err) {
 		console.error('Error al obtener usuarios:', err.message);
 		setUsers([]);

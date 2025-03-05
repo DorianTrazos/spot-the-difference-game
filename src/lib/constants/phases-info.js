@@ -1,5 +1,5 @@
 const GAME_PHASES = {
-	MEMORIZE: { title: 'Memoriza', time: 20 },
+	MEMORIZE: { title: 'Memoriza', time: 40 },
 	READY: { title: '¿Listo?', time: 3 },
 	PLAY: { title: '¿Qué Ha Cambiado?', time: 120 }
 };

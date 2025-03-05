@@ -7,50 +7,63 @@ import { getAllUsers, updateGameStats } from '../../lib/utils/database';
 import './game-over.css';
 
 const GameOver = () => {
-	// const [gameTime, setGameTime] = useState(0);
 	const [users, setUsers] = useState([]);
 	const { user } = useAuth();
 	const { points, level } = useGame();
-	updateGameStats(user.id, level, points);
 
-	console.log(users);
 	useEffect(() => {
-		// saveGameTimeInLocalStorage(setGameTime);
-		getAllUsers(setUsers);
-	}, []);
+		updateAndFetchUsers(user, level, points, setUsers);
+	}, [user, level, points]); // Se ejecuta cuando el usuario o los puntos cambian
 
 	return (
 		<div className='game-over-content'>
-			<h2 className='game-over-title'>PERDISTE</h2>
-			<p>Has obtenido una puntuación total de {points} puntos!!!</p>
-			<div className='images-compare'>
-				<div className='image'>
-					<img src='/assets/images/room-1/1.png' alt='original room' />
-					<span>ORIGINAL</span>
-				</div>
-				<div className='image'>
-					<img
-						src={ROOMS_TO_PLAY[level].image.replace(
-							'room-1',
-							'room-1-solutions'
-						)}
-						alt='original room'
-					/>
-					<span>MODIFICADA</span>
+			<div>
+				<h2 className='game-over-title'>PERDISTE</h2>
+				<p>Has obtenido una puntuación total de {points} puntos!!!</p>
+				<div className='images-compare'>
+					<div className='image'>
+						<img src='/assets/images/room-1/1.png' alt='original room' />
+						<span>ORIGINAL</span>
+					</div>
+					<div className='image'>
+						<img
+							src={ROOMS_TO_PLAY[level].image.replace(
+								'room-1',
+								'room-1-solutions'
+							)}
+							alt='original room'
+						/>
+						<span>MODIFICADA</span>
+					</div>
 				</div>
 			</div>
-			{users.map(user => (
-				<div key={user.id}>
-					<h2>{user.username}</h2>
-					<p>Level: {user.level}</p>
-					<p>Points: {user.points}</p>
+			<div>
+				<div className='top-users'>
+					<span>User</span>
+					<p>Level</p>
+					<p>Points</p>
+
+					{users.map(user => (
+						<>
+							<span>{user.username}</span>
+							<span>{user.max_level}</span>
+							<span>{user.max_points}</span>
+						</>
+					))}
 				</div>
-			))}
-			<Link to='/' className='button button-primary'>
-				Volver a la pantalla inicial
-			</Link>
+				<Link to='/' className='button button-primary'>
+					Volver a la pantalla inicial
+				</Link>
+			</div>
 		</div>
 	);
+};
+
+const updateAndFetchUsers = async (user, level, points, setUsers) => {
+	if (user) {
+		await updateGameStats(user.id, level, points);
+	}
+	getAllUsers(setUsers);
 };
 
 export default GameOver;

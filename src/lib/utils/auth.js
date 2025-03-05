@@ -15,10 +15,9 @@ export const signInWithGoogle = async () => {
 			created_at: new Date().toISOString(),
 			email: user.email,
 			username: user.user_metadata.full_name || user.email.split('@')[0],
-			level: 1,
-			points: 0,
-			total_attemps: 0,
-			game_time: 0
+			max_level: 1,
+			max_points: 0,
+			total_attempts: 0
 		}
 	]);
 
